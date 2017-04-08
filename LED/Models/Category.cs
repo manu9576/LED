@@ -8,6 +8,16 @@ namespace LED.models
 {
     public class Category
     {
-        string Nom { get; set; }
+        public Category()
+        {
+            Name = "Nouvelle catégorie";
+        }
+
+        public Category(string name)
+        {
+            Name = name;
+        }
+
+        public string Name { get; set; }
     }
 }

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace LED.models
 {
-    class Ordered_Item
+    class Item_TrueFalse
     {
-        public string Name { get; set; }
-        public int Place { get; set; }
-
+        public string Phrase { get; set; }
+        public bool IsTrue { get; set; }
     }
 }

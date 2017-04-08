@@ -7,13 +7,25 @@ using System.Threading.Tasks;
 
 namespace LED.models
 {
-    class Test
+    public class Test
     {
-        string Name { get; set; }
-        string Observations { get; set; }
+        public string Name { get; set; }
+        public string Observations { get; set; }
 
-        QCM[] Questions { get; set; }
+        public List<Question> Questions { get; set; }
 
-        List<Category> TestCategory { get; set; }
+        public List<Category> TestCategory { get; set; }
+
+        public Test()
+        {
+            Name = "New test";
+            Observations = string.Empty;
+
+            Questions = new List<Question>();
+            Questions.Add(new Question());
+
+            TestCategory = new List<Category>();
+            TestCategory.Add(new Category( "Internet"));
+        }
     }
 }

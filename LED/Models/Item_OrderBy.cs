@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LED.models
 {
-    class QCM_Item
+    class Item_OrderBy
     {
-        public string Phrase { get; set; }
-        public bool IsTrue { get; set; }
+        public string Containaire { get; set; }
+        public List<string> Items { get; set; }
     }
 }

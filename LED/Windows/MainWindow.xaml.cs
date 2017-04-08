@@ -13,21 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LED.Pages
+namespace LED.Windows
 {
     /// <summary>
-    /// Logique d'interaction pour Accueil.xaml
+    /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class Accueil : Page
+    public partial class MainWindow : Window
     {
-        public Accueil()
+        public MainWindow()
         {
             InitializeComponent();
+
+      
+            
         }
 
-        private void bt_NewTest_Click(object sender, RoutedEventArgs e)
+        private void bt_CreateNewTest_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateNewTest cnt = new CreateNewTest();
+            cnt.Show();
+            this.Close();
         }
     }
 }

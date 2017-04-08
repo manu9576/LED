@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LED.models
 {
-    class OrderBy_Item
+    class Item_Intrus
     {
-        public string Containaire { get; set; }
-        public List<string> Items { get; set; }
+        public string Phrase { get; set; }
+        public bool IsIntrus { get; set; }
     }
 }

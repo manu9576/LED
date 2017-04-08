@@ -1,0 +1,59 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LED.Windows"
+        xmlns:models="clr-namespace:LED.models" x:Class="LED.Windows.CreateNewTest"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Création d'un nouveau test" Height="300" Width="403.857">
+    <Window.DataContext>
+        <models:Test/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                        ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="models:TypeTest"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="36"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="25.333"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Création d'un test" VerticalAlignment="Center" Grid.ColumnSpan="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,5" FontSize="20"/>
+        <Label Content="Nom du test :" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Right" Height="26" Width="82"/>
+        <Label Content="Observations :" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="26" Width="85"/>
+        <Label Content="Listes des questions : " HorizontalAlignment="Right" Grid.Row="3" VerticalAlignment="Top" Height="26" Width="124"/>
+        <Button x:Name="bt_save" Content="Enregistrer" HorizontalAlignment="Center" Margin="0,0,124,5" Grid.Row="5" VerticalAlignment="Center" Width="76" Click="bt_save_Click" Height="20" Grid.Column="1"/>
+        <DataGrid x:Name="dg_Questions" Grid.Column="1" Grid.Row="3" DataContext="{Binding Mode=OneWay}" ItemsSource="{Binding Questions}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" AutoGenerateColumns="False" HorizontalAlignment="Left" CanUserSortColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Nom de la question"/>
+                <DataGridComboBoxColumn  Header="Type de test" ItemsSource="{Binding Source={ StaticResource dataFromEnum}}" SelectedValueBinding="{Binding TestType}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="tb_TestName" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Center" VerticalContentAlignment="Center" MinWidth="200" Height="18" Margin="0,4" Width="{Binding Width, ElementName=dg_Questions}" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tb_Observations" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Observations}" MinWidth="200" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="18" Margin="0,4" Width="{Binding Width, ElementName=dg_Questions}" HorizontalAlignment="Left"/>
+        <Label x:Name="lb_categories" Content="Catégories :" HorizontalAlignment="Right" Grid.Row="4" VerticalAlignment="Top" RenderTransformOrigin="0.518,1.233" HorizontalContentAlignment="Right"/>
+        <DataGrid x:Name="dg_Categories" Grid.Column="1" Grid.Row="4" ItemsSource="{Binding TestCategory}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" CanUserSortColumns="False" DataContext="{Binding Mode=OneWay}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Nom"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</Window>

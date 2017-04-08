@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace LED.models
 {
-    public class OrderBy : QuestionGlobalsParameters
+    class Item_Ordered
     {
-        List<OrderBy_Item> Contenaires { get; set; }
+        public string Name { get; set; }
+        public int Place { get; set; }
+
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LED.models
 {
-    public class QCM : QuestionGlobalsParameters
+    class Item_QCM
     {
-        List<QCM_Item> Questions { get; set; }
-
+        public string Phrase { get; set; }
+        public bool IsTrue { get; set; }
     }
 }

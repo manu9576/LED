@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programmation\LED\LED\App.xaml
-3-223260871
+2-452864736
 
-24494099229
+18-1194841125
 162120623700
-MainWindow.xaml;Pages\Accueil.xaml;Pages\NewTest.xaml;
+Windows\CreateNewTest.xaml;Windows\MainWindow.xaml;
 
 False
 
