@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LED.Windows"
-        xmlns:models="clr-namespace:LED.models" x:Class="LED.Windows.CreateNewTest"
+        xmlns:models="clr-namespace:LED.Models" x:Class="LED.Windows.CreateNewTest"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Création d'un nouveau test" Height="300" Width="403.857">
+        Title="Création d'un nouveau test" Height="422" Width="609.19">
     <Window.DataContext>
         <models:Test/>
     </Window.DataContext>
@@ -25,34 +25,73 @@
             <RowDefinition Height="Auto" MinHeight="36"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="26*"/>
-            <RowDefinition Height="26*"/>
-            <RowDefinition Height="25.333"/>
+            <RowDefinition Height="108*"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="133*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="11"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="247*"/>
+            <ColumnDefinition Width="16*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Création d'un test" VerticalAlignment="Center" Grid.ColumnSpan="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,5" FontSize="20"/>
+        <Label Content="Création d'un test" VerticalAlignment="Center" Grid.ColumnSpan="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,5" FontSize="20" Height="37"/>
         <Label Content="Nom du test :" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Right" Height="26" Width="82"/>
         <Label Content="Observations :" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="26" Width="85"/>
         <Label Content="Listes des questions : " HorizontalAlignment="Right" Grid.Row="3" VerticalAlignment="Top" Height="26" Width="124"/>
-        <Button x:Name="bt_save" Content="Enregistrer" HorizontalAlignment="Center" Margin="0,0,124,5" Grid.Row="5" VerticalAlignment="Center" Width="76" Click="bt_save_Click" Height="20" Grid.Column="1"/>
-        <DataGrid x:Name="dg_Questions" Grid.Column="1" Grid.Row="3" DataContext="{Binding Mode=OneWay}" ItemsSource="{Binding Questions}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" AutoGenerateColumns="False" HorizontalAlignment="Left" CanUserSortColumns="False">
+        <Button x:Name="bt_save" Content="Enregistrer" HorizontalAlignment="Center" Margin="10,0,114,3" Grid.Row="7" VerticalAlignment="Center" Width="76" Click="bt_save_Click" Height="20" Grid.Column="1" Grid.ColumnSpan="5"/>
+        <DataGrid x:Name="dg_Questions" Grid.Column="1" Grid.Row="3" DataContext="{Binding Mode=OneWay}" ItemsSource="{Binding Questions}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" AutoGenerateColumns="False" HorizontalAlignment="Left" CanUserSortColumns="False" IsSynchronizedWithCurrentItem="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Nom de la question"/>
                 <DataGridComboBoxColumn  Header="Type de test" ItemsSource="{Binding Source={ StaticResource dataFromEnum}}" SelectedValueBinding="{Binding TestType}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="tb_TestName" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Center" VerticalContentAlignment="Center" MinWidth="200" Height="18" Margin="0,4" Width="{Binding Width, ElementName=dg_Questions}" HorizontalAlignment="Left"/>
-        <TextBox x:Name="tb_Observations" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Observations}" MinWidth="200" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="18" Margin="0,4" Width="{Binding Width, ElementName=dg_Questions}" HorizontalAlignment="Left"/>
-        <Label x:Name="lb_categories" Content="Catégories :" HorizontalAlignment="Right" Grid.Row="4" VerticalAlignment="Top" RenderTransformOrigin="0.518,1.233" HorizontalContentAlignment="Right"/>
-        <DataGrid x:Name="dg_Categories" Grid.Column="1" Grid.Row="4" ItemsSource="{Binding TestCategory}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" CanUserSortColumns="False" DataContext="{Binding Mode=OneWay}" AutoGenerateColumns="False">
+        <TextBox x:Name="tb_TestName" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Center" VerticalContentAlignment="Center" MinWidth="200" Height="18" Margin="0,4" Width="200" HorizontalAlignment="Left"/>
+        <TextBox x:Name="tb_Observations" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Observations}" MinWidth="200" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="18" Margin="0,4" Width="200" HorizontalAlignment="Left"/>
+        <Label x:Name="lb_categories" Content="Catégories :" HorizontalAlignment="Right" Grid.Row="5" VerticalAlignment="Top" RenderTransformOrigin="0.518,1.233" HorizontalContentAlignment="Right" Height="26" Width="72"/>
+        <DataGrid x:Name="dg_Categories" Grid.Column="1" Grid.Row="5" ItemsSource="{Binding TestCategory}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" CanUserSortColumns="False" DataContext="{Binding Mode=OneWay}" AutoGenerateColumns="False" Margin="0,0,14,0" HorizontalAlignment="Left"  UnloadingRow="dg_Categories_UnloadingRow" RowEditEnding="dg_Categories_RowEditEnding">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Nom"/>
             </DataGrid.Columns>
         </DataGrid>
+        <GroupBox Grid.Column="3" Header="Edition question" HorizontalAlignment="Left" Grid.Row="1" Grid.RowSpan="5" Width="227" HorizontalContentAlignment="Stretch" Margin="10,10,0,10">
+            <Grid Margin="5" DataContext="{Binding Questions}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Nom" Margin="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Content="Question" Margin="0" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Content="Type test" Margin="0" Grid.Row="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Content="Temps limite (s)" Margin="0" Grid.Row="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <TextBox Grid.Column="2" Margin="0" TextWrapping="Wrap" Text="{Binding /Name}" VerticalContentAlignment="Center" Height="23"/>
+                <TextBox Grid.Column="2" Height="23" Margin="0" TextWrapping="Wrap" Text="{Binding /ContextPhrase}" Grid.Row="1" VerticalContentAlignment="Center"/>
+                <ComboBox Grid.Column="2" Margin="0" Grid.Row="2" Height="28" ItemsSource="{Binding Source={ StaticResource dataFromEnum}}" SelectedItem="{Binding /TestType}" VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="2" Height="23" Margin="0" Grid.Row="3" TextWrapping="Wrap" Text="{Binding /TimeLimite}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <GroupBox Grid.ColumnSpan="4" Header="Attribution des points" Margin="0" Grid.Row="4" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                    <DataGrid x:Name="wf_dg_Notations" Margin="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Mode=OneWay}" DataContext="{Binding /Notation}" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Category.Name}" ClipboardContentBinding="{x:Null}" Header="Nom de la catégorie" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Points}" ClipboardContentBinding="{x:Null}" Header="Nombre de points"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+
+            </Grid>
+        </GroupBox>
 
 
     </Grid>

@@ -15,3 +15,4 @@ D:\Programmation\LED\LED\obj\Debug\Windows\MainWindow.g.cs
 D:\Programmation\LED\LED\obj\Debug\Windows\CreateNewTest.baml
 D:\Programmation\LED\LED\obj\Debug\Windows\MainWindow.baml
 D:\Programmation\LED\LED\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Programmation\LED\LED\obj\Debug\LED.csprojResolveAssemblyReference.cache

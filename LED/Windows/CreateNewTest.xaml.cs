@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using LED.models;
+using LED.Models;
 
 namespace LED.Windows
 {
@@ -38,6 +38,21 @@ namespace LED.Windows
             Console.WriteLine(m_questionnaire.Name);
             Console.WriteLine(m_questionnaire.Observations);
             Console.WriteLine(m_questionnaire.Questions.Count);
+            m_questionnaire.UpdateCategory();
         }
+
+
+        private void dg_Categories_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            m_questionnaire.UpdateCategory();
+            wf_dg_Notations.Items.Refresh();
+        }
+
+        private void dg_Categories_UnloadingRow(object sender, DataGridRowEventArgs e)
+        {
+            m_questionnaire.UpdateCategory();
+            wf_dg_Notations.Items.Refresh();
+        }
+
     }
 }

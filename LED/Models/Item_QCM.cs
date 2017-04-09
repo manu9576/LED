@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LED.models
+namespace LED.Models
 {
     class Item_QCM
     {

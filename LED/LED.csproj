@@ -74,6 +74,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Bareme.cs" />
     <Compile Include="Windows\CreateNewTest.xaml.cs">
       <DependentUpon>CreateNewTest.xaml</DependentUpon>
     </Compile>

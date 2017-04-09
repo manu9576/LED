@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LED.models
+namespace LED.Models
 {
     public enum TypeTest {QCM,ORDERED,BY_TYPE,INTRUS,TRUE_FALSE } 
     public enum QuestionStat { UNDONE, GOOD, FALSE}
@@ -16,7 +16,7 @@ namespace LED.models
         public string ContextPhrase { get; set; }
         public int TimeLimite { get; set; }
         public TypeTest TestType { get; set; }
-        public Dictionary<Category,int> Notation { get; set; }
+        public List<Bareme> Notation { get; set; }
         public QuestionStat State { get; set; }
 
         List<Item_Intrus> Questions_intrus { get; set; }
@@ -32,7 +32,9 @@ namespace LED.models
         public Question()
         {
             Name = "test1";
-            TestType = TypeTest.INTRUS; 
+            TestType = TypeTest.INTRUS;
+
+            Notation = new List<Bareme>();
 
         }
     }
