@@ -12,5 +12,9 @@ namespace LED.Models
         public Category Category { get; set; }
         public int Points { get; set; }
 
+        public override string ToString()
+        {
+            return "Category name : " + Category.Name + " points = " + Points;
+        }
     }
 }

@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LED"
         mc:Ignorable="d"
-        Title="Windows.MainWindow" Height="350" Width="585.805">
+        Title="Windows.MainWindow" Height="350" Width="585.805" Closing="Window_Closing">
     <Button x:Name="bt_CreateNewTest" Content="Creation d'un nouveau test" HorizontalAlignment="Left" Margin="138,116,0,0" VerticalAlignment="Top" Width="179" Height="36" Click="bt_CreateNewTest_Click"/>
 </Window>

@@ -20,12 +20,10 @@ namespace LED.Models
         {
             get
             {
-                
                 return m_testCategory;
             }
             set
-            {
-               
+            {  
                 m_testCategory = value;
             }
         }
@@ -77,7 +75,22 @@ namespace LED.Models
             m_testCategory.Add(new Category( "Internet"));
 
             UpdateCategory();
+        }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("Test name : " + Name);
+            sb.AppendLine("test observation : " + Observations);
+            sb.AppendLine("Category : ");
+            foreach (Category cat in TestCategory)
+                sb.AppendLine("\t" + cat.Name);
+            sb.AppendLine("Questions : ");
+            foreach (Question cat in Questions)
+                sb.AppendLine(cat.ToString());
+
+            return sb.ToString();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LED.Log;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,15 +25,20 @@ namespace LED.Windows
         {
             InitializeComponent();
 
-      
-            
+            Logger.WriteMessage("Application Start");
         }
 
         private void bt_CreateNewTest_Click(object sender, RoutedEventArgs e)
         {
+            Logger.WriteMessage("Opening CreateNewTest");
             CreateNewTest cnt = new CreateNewTest();
-            cnt.Show();
-            this.Close();
+            cnt.ShowDialog();
+
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Logger.Dispose();
         }
     }
 }
