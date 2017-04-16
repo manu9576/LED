@@ -1,22 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LED.Models
 {
-    public enum TypeTest { QCM, ORDERED, BY_TYPE, INTRUS, TRUE_FALSE }
+    [Flags]
+    public enum TypeTest
+    { 
+        [Display(Name ="QCM")]
+        QCM,
+        [Display(Name = "Classement")]
+        ORDERED,
+        [Display(Name = "Classement par conténaires")]
+        ORDERBY,
+        [Display(Name = "Recherche de l'intrus")]
+        INTRUS,
+        [Display(Name = "Vrai / faux")]
+        TRUE_FALSE
+    }
+
     public enum QuestionStat { UNDONE, GOOD, FALSE }
 
     public class Question
     {
+        [DisplayName("Nom du question")]
         public string Name { get; set; }
+
+        [DisplayName("Phrase d'explication")]
         public string ContextPhrase { get; set; }
+
+        [DisplayName("Temps limite")]
         public int TimeLimite { get; set; }
+
+        [DisplayName("Type de test")]
         public TypeTest TestType { get; set; }
+
+        [DisplayName("Notations de la question")]
         public List<Bareme> Notation { get; set; }
+
         public QuestionStat State { get; set; }
+
 
         public List<ItemIntrus> QuestionsIntrus { get; set; }
         public List<ItemOrderBy> QuestionsOrderedBy { get; set; }
@@ -26,7 +53,7 @@ namespace LED.Models
 
         public Question()
         {
-            Name = "test1";
+            Name = "Question";
             TestType = TypeTest.INTRUS;
 
             Notation = new List<Bareme>();
@@ -55,7 +82,7 @@ namespace LED.Models
 
             switch (TestType)
             {
-                case TypeTest.BY_TYPE:
+                case TypeTest.ORDERBY:
 
                     foreach (ItemOrderBy item in QuestionsOrderedBy)
                         sb.AppendLine("**\t" + item);

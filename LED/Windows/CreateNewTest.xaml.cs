@@ -80,7 +80,7 @@ namespace LED.Windows
                             gb_details.Content = intrus;
                            break;
 
-                        case TypeTest.BY_TYPE:
+                        case TypeTest.ORDERBY:
                             UC_OrderdBy orderedBy = new UC_OrderdBy();
                             orderedBy.dg_question_orderedBy_Contenaire.ItemsSource = quest.QuestionsOrderedBy;
                             gb_details.Content = orderedBy;

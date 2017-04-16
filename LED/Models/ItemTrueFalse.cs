@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +9,11 @@ namespace LED.Models
 {
     public class ItemTrueFalse
     {
+        [DisplayName("Affirmations")]
         public string Phrase { get; set; }
-        public bool IsTrue { get; set; }
 
-        public ItemTrueFalse()
-        {
-            Phrase = "Exemple";
-            IsTrue = false;
-        }
+        [DisplayName("Est vrai")]
+        public bool IsTrue { get; set; }
 
         public override string ToString()
         {

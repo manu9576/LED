@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,16 @@ namespace LED.Models
 {
     public class Test
     {
-        private List<Category> m_testCategory;
-
+        [DisplayName("Nom du test")]
         public string Name { get; set; }
+
+        [DisplayName("Commentaires")]
         public string Observations { get; set; }
 
+        [DisplayName("Liste des questions du test")]
         public List<Question> Questions { get; set; }
 
+        [DisplayName("Listes des catégories du test")]
         public List<Category> TestCategory
         {
             get
@@ -27,6 +31,10 @@ namespace LED.Models
                 m_testCategory = value;
             }
         }
+
+
+        private List<Category> m_testCategory;
+
 
         /// <summary>
         /// For each question, we need of the list of the categorie of the question
@@ -65,14 +73,12 @@ namespace LED.Models
 
         public Test()
         {
-            Name = "New test";
+            Name = "Nouveau test";
             Observations = string.Empty;
 
             Questions = new List<Question>();
-            Questions.Add(new Question());
 
             m_testCategory = new List<Category>();
-            m_testCategory.Add(new Category( "Internet"));
 
             UpdateCategory();
         }

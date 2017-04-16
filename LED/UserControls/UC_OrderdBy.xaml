@@ -11,11 +11,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dg_question_orderedBy_Contenaire" Margin="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding Questions_orderedBy}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Containaire}" ClipboardContentBinding="{x:Null}" Header="Contenaires"/>
-                <DataGridTextColumn Binding="{Binding Items}" ClipboardContentBinding="{x:Null}" Header="Items"/>
-            </DataGrid.Columns>
+        <DataGrid x:Name="dg_question_orderedBy_Contenaire" Margin="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding Questions_orderedBy}">
             <DataGrid.DataContext>
                 <Models:Question/>
             </DataGrid.DataContext>
