@@ -9,6 +9,8 @@ namespace LED.Models
 {
     public class ItemQCM
     {
+
+
         [DisplayName("Affirmation")]
         public string Phrase { get; set; }
 

@@ -9,6 +9,8 @@ namespace LED.Models
 {
     public class Category
     {
+
+
         public Category()
         {
             Name = "Nouvelle catégorie";

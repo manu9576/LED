@@ -43,6 +43,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,7 +81,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\CreateNewTest.xaml">
+    <Page Include="Windows\EditTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,6 +96,7 @@
     <Compile Include="Log\Log.cs" />
     <Compile Include="Log\LogMessage.cs" />
     <Compile Include="Models\Bareme.cs" />
+    <Compile Include="Models\TestsCollection.cs" />
     <Compile Include="UserControls\UC_Intrus.xaml.cs">
       <DependentUpon>UC_Intrus.xaml</DependentUpon>
     </Compile>
@@ -109,8 +112,8 @@
     <Compile Include="UserControls\UC_TrueFalse.xaml.cs">
       <DependentUpon>UC_TrueFalse.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\CreateNewTest.xaml.cs">
-      <DependentUpon>CreateNewTest.xaml</DependentUpon>
+    <Compile Include="Windows\EditTest.xaml.cs">
+      <DependentUpon>EditTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -143,13 +146,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

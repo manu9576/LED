@@ -1,18 +1,6 @@
 ﻿using LED.Log;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LED.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LED.Windows
 {
@@ -21,24 +9,80 @@ namespace LED.Windows
     /// </summary>
     public partial class MainWindow : Window
     {
+        private TestsCollection m_tests = null;
+
+
         public MainWindow()
         {
             InitializeComponent();
-
+            m_tests = TestsCollection.GetTests();
             Logger.WriteMessage("Application Start");
+
+            Wf_dg_testsList.DataContext = m_tests.Tests;
         }
 
-        private void bt_CreateNewTest_Click(object sender, RoutedEventArgs e)
+        private void Bt_CreateNewTest_Click(object sender, RoutedEventArgs e)
         {
             Logger.WriteMessage("Opening CreateNewTest");
-            CreateNewTest cnt = new CreateNewTest();
+
+            Test questionnaire = new Test { Name = "Nouveau test" };
+            
+            EditTest cnt = new EditTest(questionnaire);
             cnt.ShowDialog();
 
+            if (cnt.Validate)
+            { 
+                m_tests.Tests.Add(questionnaire);
+                Wf_dg_testsList.Items.Refresh();
+            }
         }
+
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            m_tests.Save();
             Logger.Dispose();
+        }
+
+
+        private void Wf_bt_Modify_Click(object sender, RoutedEventArgs e)
+        {
+            Test testSelectionne = Wf_dg_testsList.SelectedItem as Test;
+
+            if (testSelectionne != null)
+            {
+                Test questionnaire = new Test(testSelectionne);
+
+                EditTest cnt = new EditTest(questionnaire);
+                cnt.ShowDialog();
+
+                if (cnt.Validate)
+                {
+                    m_tests.Tests.Add(questionnaire);
+                    m_tests.Tests.Remove(testSelectionne);
+                    Wf_dg_testsList.Items.Refresh();
+                }
+
+            }
+        }
+        
+
+        private void Wf_dg_testsList_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Delete)
+            {
+                Test testSelectionne = Wf_dg_testsList.SelectedItem as Test;
+
+                if (testSelectionne != null)
+                {
+                    Test questionnaire = new Test(testSelectionne);
+                    MessageBoxResult res = MessageBox.Show("Confirmez-vous la suppression du test : " + testSelectionne.Name,
+                        "Suppression test", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                    e.Handled = (res == MessageBoxResult.No);
+                    
+                }
+            }
         }
     }
 }

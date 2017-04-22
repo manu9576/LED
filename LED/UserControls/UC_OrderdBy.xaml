@@ -6,8 +6,12 @@
              xmlns:local="clr-namespace:LED.UserControls"
              xmlns:Models="clr-namespace:LED.Models" x:Class="LED.UserControls.UC_OrderdBy"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="259*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -16,5 +20,6 @@
                 <Models:Question/>
             </DataGrid.DataContext>
         </DataGrid>
+        <Label Content="Mettre le caractére &lt; ; &gt; entre les différents items" HorizontalAlignment="Center" Margin="0" Grid.Row="1" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
     </Grid>
 </UserControl>

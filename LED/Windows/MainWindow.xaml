@@ -1,10 +1,38 @@
-﻿<Window x:Class="LED.Windows.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LED"
+        xmlns:Models="clr-namespace:LED.Models" x:Class="LED.Windows.MainWindow"
         mc:Ignorable="d"
-        Title="Windows.MainWindow" Height="350" Width="585.805" Closing="Window_Closing">
-    <Button x:Name="bt_CreateNewTest" Content="Creation d'un nouveau test" HorizontalAlignment="Left" Margin="138,116,0,0" VerticalAlignment="Top" Width="179" Height="36" Click="bt_CreateNewTest_Click"/>
+        Title="Logiciel d'Evalution Dynamique" Height="350" Width="585.805" Closing="Window_Closing">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="Wf_bt_CreateNewTest" Content="Création d'un test" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Click="Bt_CreateNewTest_Click" Grid.Row="4" Grid.Column="1" Padding="5"/>
+        <DataGrid x:Name="Wf_dg_testsList" Grid.Column="1" Margin="0" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.RowSpan="3" AutoGenerateColumns="False" ItemsSource="{Binding Mode=OneWay}" Grid.ColumnSpan="3" PreviewKeyDown="Wf_dg_testsList_PreviewKeyDown">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Tests existant" IsReadOnly="True"/>
+            </DataGrid.Columns>
+            <DataGrid.DataContext>
+                <Models:Test/>
+            </DataGrid.DataContext>
+        </DataGrid>
+        <Button x:Name="Wf_bt_Modify" Content="Modifier test" Grid.Column="2" HorizontalAlignment="Center" Margin="0" Grid.Row="4" VerticalAlignment="Center" RenderTransformOrigin="-0.1,0.25" Padding="5" Click="Wf_bt_Modify_Click"/>
+        <Button x:Name="Wf_bt_StartTest" Content="Lancer test" Grid.Column="3" HorizontalAlignment="Center" Margin="0" Grid.Row="4" VerticalAlignment="Center" Padding="5"/>
+    </Grid>
 </Window>

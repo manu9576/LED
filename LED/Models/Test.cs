@@ -10,6 +10,7 @@ namespace LED.Models
 {
     public class Test
     {
+
         [DisplayName("Nom du test")]
         public string Name { get; set; }
 
@@ -37,7 +38,7 @@ namespace LED.Models
 
 
         /// <summary>
-        /// For each question, we need of the list of the categorie of the question
+        /// For each question, we need a list of the categorie of the question
         /// </summary>
         public void UpdateCategory()
         {
@@ -82,6 +83,19 @@ namespace LED.Models
 
             UpdateCategory();
         }
+
+        public Test(Test copie)
+        {
+            Name = copie.Name;
+            Observations = copie.Name;
+
+            Questions = new List<Question>(copie.Questions);
+
+            m_testCategory = new List<Category>(copie.TestCategory);
+
+            UpdateCategory();
+        }
+
 
         public override string ToString()
         {

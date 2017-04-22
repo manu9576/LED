@@ -9,6 +9,7 @@ namespace LED.Models
 {
     public class ItemIntrus
     {
+
         [DisplayName("Affirmation")]
         public string Phrase { get; set; }
 

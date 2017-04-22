@@ -27,6 +27,7 @@ namespace LED.Models
 
     public class Question
     {
+
         [DisplayName("Nom du question")]
         public string Name { get; set; }
 

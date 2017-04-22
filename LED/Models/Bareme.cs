@@ -10,6 +10,8 @@ namespace LED.Models
 {
    public class Bareme
     {
+
+
         [DisplayName("Catégorie")]
         public Category Category { get; set; }
 

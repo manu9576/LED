@@ -9,6 +9,7 @@ namespace LED.Models
 {
     public class ItemTrueFalse
     {
+
         [DisplayName("Affirmations")]
         public string Phrase { get; set; }
 
