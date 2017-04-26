@@ -28,7 +28,9 @@ namespace LED.Windows
             Test questionnaire = new Test { Name = "Nouveau test" };
             
             EditTest cnt = new EditTest(questionnaire);
+            this.Hide();
             cnt.ShowDialog();
+            this.Show();
 
             if (cnt.Validate)
             { 
@@ -54,7 +56,10 @@ namespace LED.Windows
                 Test questionnaire = new Test(testSelectionne);
 
                 EditTest cnt = new EditTest(questionnaire);
+
+                this.Hide();
                 cnt.ShowDialog();
+                this.Show();
 
                 if (cnt.Validate)
                 {
@@ -62,6 +67,7 @@ namespace LED.Windows
                     m_tests.Tests.Remove(testSelectionne);
                     Wf_dg_testsList.Items.Refresh();
                 }
+
 
             }
         }
@@ -82,6 +88,22 @@ namespace LED.Windows
                     e.Handled = (res == MessageBoxResult.No);
                     
                 }
+            }
+        }
+
+        private void Wf_bt_StartTest_Click(object sender, RoutedEventArgs e)
+        {
+            Test testSelectionne = Wf_dg_testsList.SelectedItem as Test;
+
+            if (testSelectionne != null)
+            {
+                Exam exam = new Exam(testSelectionne);
+
+                this.Hide();
+                exam.ShowDialog();
+                this.Show();
+
+
             }
         }
     }

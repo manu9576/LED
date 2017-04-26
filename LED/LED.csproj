@@ -61,23 +61,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="UserControls\UC_Intrus.xaml">
+    <Compile Include="Models\ViewExam.cs" />
+    <Compile Include="Windows\Exam.xaml.cs">
+      <DependentUpon>Exam.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UserControls\UC_ConfigIntrus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UC_OrderdBy.xaml">
+    <Page Include="UserControls\UC_ConfigOrderdBy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UC_Ordered.xaml">
+    <Page Include="UserControls\UC_ConfigOrdered.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UC_QCM.xaml">
+    <Page Include="UserControls\UC_ConfigQCM.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UC_TrueFalse.xaml">
+    <Page Include="UserControls\UC_ConfigTrueFalse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -97,20 +101,20 @@
     <Compile Include="Log\LogMessage.cs" />
     <Compile Include="Models\Bareme.cs" />
     <Compile Include="Models\TestsCollection.cs" />
-    <Compile Include="UserControls\UC_Intrus.xaml.cs">
-      <DependentUpon>UC_Intrus.xaml</DependentUpon>
+    <Compile Include="UserControls\UC_ConfigIntrus.xaml.cs">
+      <DependentUpon>UC_ConfigIntrus.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UC_OrderdBy.xaml.cs">
-      <DependentUpon>UC_OrderdBy.xaml</DependentUpon>
+    <Compile Include="UserControls\UC_ConfigOrderdBy.xaml.cs">
+      <DependentUpon>UC_ConfigOrderdBy.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UC_Ordered.xaml.cs">
-      <DependentUpon>UC_Ordered.xaml</DependentUpon>
+    <Compile Include="UserControls\UC_ConfigOrdered.xaml.cs">
+      <DependentUpon>UC_ConfigOrdered.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UC_QCM.xaml.cs">
-      <DependentUpon>UC_QCM.xaml</DependentUpon>
+    <Compile Include="UserControls\UC_ConfigQCM.xaml.cs">
+      <DependentUpon>UC_ConfigQCM.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UC_TrueFalse.xaml.cs">
-      <DependentUpon>UC_TrueFalse.xaml</DependentUpon>
+    <Compile Include="UserControls\UC_ConfigTrueFalse.xaml.cs">
+      <DependentUpon>UC_ConfigTrueFalse.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditTest.xaml.cs">
       <DependentUpon>EditTest.xaml</DependentUpon>
@@ -119,6 +123,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\Exam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Category.cs" />
@@ -146,7 +154,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,6 +164,5 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

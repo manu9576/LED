@@ -24,4 +24,16 @@ D:\Programmation\LED\LED\obj\Debug\LED.Properties.Resources.resources
 D:\Programmation\LED\LED\obj\Debug\LED.csproj.GenerateResource.Cache
 D:\Programmation\LED\LED\obj\Debug\LED.exe
 D:\Programmation\LED\LED\obj\Debug\LED.pdb
+D:\Programmation\LED\LED\obj\Debug\App.baml
+D:\Programmation\LED\LED\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+D:\Programmation\LED\LED\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+D:\Programmation\LED\LED\bin\Debug\WPFToolkit.dll
+D:\Programmation\LED\LED\obj\Debug\Themes\Office2010Blue\Office2010Blue.MSControls.Core.Implicit.baml
+D:\Programmation\LED\LED\obj\Debug\Themes\Office2010Blue\Office2010Blue.MSControls.Toolkit.Implicit.baml
+D:\Programmation\LED\LED\obj\Debug\Themes\Office2010Blue\Styles.Shared.baml
+D:\Programmation\LED\LED\obj\Debug\Themes\Office2010Blue\Styles.WPF.baml
+D:\Programmation\LED\LED\obj\Debug\Themes\Office2010Blue\Theme.Colors.baml
+D:\Programmation\LED\LED\obj\Debug\Windows\PassTest.g.cs
+D:\Programmation\LED\LED\obj\Debug\Windows\PassTest.baml
 D:\Programmation\LED\LED\obj\Debug\LED.csprojResolveAssemblyReference.cache
+D:\Programmation\LED\LED\obj\Debug\Windows\Exam.g.cs

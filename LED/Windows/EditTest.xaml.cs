@@ -82,31 +82,31 @@ namespace LED.Windows
                     switch (quest.TestType)
                     {
                         case TypeTest.INTRUS:
-                            UC_Intrus intrus = new UC_Intrus();
+                            UC_ConfigIntrus intrus = new UC_ConfigIntrus();
                             intrus.dg_Question_Intrus.ItemsSource = quest.QuestionsIntrus;
                             gb_details.Content = intrus;
                            break;
 
                         case TypeTest.ORDERBY:
-                            UC_OrderdBy orderedBy = new UC_OrderdBy();
+                            UC_ConfigOrderdBy orderedBy = new UC_ConfigOrderdBy();
                             orderedBy.dg_question_orderedBy_Contenaire.ItemsSource = quest.QuestionsOrderedBy;
                             gb_details.Content = orderedBy;
                             break;
 
                         case TypeTest.ORDERED:
-                            UC_Ordered ordered = new UC_Ordered();
+                            UC_ConfigOrdered ordered = new UC_ConfigOrdered();
                             ordered.dg_question_ordered.ItemsSource = quest.QuestionsOrdered;
                             gb_details.Content = ordered;
                             break;
 
                         case TypeTest.QCM:
-                            UC_QCM qcm = new UC_QCM();
+                            UC_ConfigQCM qcm = new UC_ConfigQCM();
                             qcm.dg_Question_QCM.ItemsSource = quest.QuestionsQCM;
                             gb_details.Content = qcm;
                             break;
 
                         case TypeTest.TRUE_FALSE:
-                            UC_TrueFalse trueFalse = new UC_TrueFalse();
+                            UC_ConfigTrueFalse trueFalse = new UC_ConfigTrueFalse();
                             trueFalse.dg_question_trufalse.ItemsSource = quest.QuestionsTrueFalse;
                             gb_details.Content = trueFalse;
                             break;

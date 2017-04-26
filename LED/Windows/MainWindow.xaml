@@ -33,6 +33,6 @@
             </DataGrid.DataContext>
         </DataGrid>
         <Button x:Name="Wf_bt_Modify" Content="Modifier test" Grid.Column="2" HorizontalAlignment="Center" Margin="0" Grid.Row="4" VerticalAlignment="Center" RenderTransformOrigin="-0.1,0.25" Padding="5" Click="Wf_bt_Modify_Click"/>
-        <Button x:Name="Wf_bt_StartTest" Content="Lancer test" Grid.Column="3" HorizontalAlignment="Center" Margin="0" Grid.Row="4" VerticalAlignment="Center" Padding="5"/>
+        <Button x:Name="Wf_bt_StartTest" Content="Lancer test" Grid.Column="3" HorizontalAlignment="Center" Margin="0" Grid.Row="4" VerticalAlignment="Center" Padding="5" Click="Wf_bt_StartTest_Click"/>
     </Grid>
 </Window>

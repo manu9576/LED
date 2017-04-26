@@ -1,0 +1,37 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LED.Windows"
+        xmlns:Models="clr-namespace:LED.Models" x:Class="LED.Windows.Exam"
+        mc:Ignorable="d"
+        Title="Test" Height="300" Width="300">
+    <Window.DataContext>
+        <Models:ViewExam/>
+    </Window.DataContext>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" MinHeight="25"/>
+            <RowDefinition Height="Auto" MinHeight="18"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="91*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="90*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="Wf_lb_TestName" Content="{Binding TestName}" Grid.Column="1" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="Wf_lb_QuestionName" Content="{Binding QuestionName}" Grid.Column="1" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="Wf_lb_TextTempsRestant" Content="Temps restant (s) :" Margin="0" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" DataContext="{Binding Questions}"/>
+        <Label x:Name="Wf_lb_Question" Content="{Binding QuestionContextPhrase}" Margin="0" Grid.Row="2" Grid.Column="1
+               " HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="Wf_bt_start" Content="Commencer" HorizontalAlignment="Center" Margin="8,0" Grid.Row="5" VerticalAlignment="Center" Width="75" Grid.Column="1" Height="22"/>
+        <Button x:Name="Wf_bt_Next" Content="Suivant" Grid.Column="2" Margin="8,0" Grid.Row="5" Width="74" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Wf_bt_Next_Click" Command="{Binding Questions/}" DataContext="{Binding Questions}" Height="22"/>
+        <Label x:Name="Wf_lb_TempsRestant" Content="{Binding QuestionTimeLimite}" Grid.Column="2" Margin="0" Grid.Row="4" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Window>
