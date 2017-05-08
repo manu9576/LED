@@ -19,7 +19,7 @@ namespace LED.UserControls
     /// <summary>
     /// Logique d'interaction pour UC_ExamOrderBy.xaml
     /// </summary>
-    public partial class UC_ExamOrderBy : UserControl
+    public partial class UC_ExamOrderBy : UserControl, IUC_Exam
     {
         private const string COPY_PASTE = "CP_TB";
 
@@ -27,7 +27,7 @@ namespace LED.UserControls
         Point m_StartPoint;
 
 
-    public UC_ExamOrderBy()
+        public UC_ExamOrderBy()
         {
             InitializeComponent();
         }
@@ -45,8 +45,7 @@ namespace LED.UserControls
                 GroupBox gb = new GroupBox()
                 {
                     AllowDrop = true,
-                    Header = question.Contenaire,
-                    //Padding = new Thickness(5)
+                    Header = question.Contenaire
                 };
 
                 ListView lv = new ListView()
@@ -60,9 +59,7 @@ namespace LED.UserControls
 
                 uc_sp_contenaires.Children.Add(gb);
 
-                 items.AddRange(question.Items.Split(';'));
-
-               
+                items.AddRange(question.Items.Split(';'));
             }
 
             Randomizer.Randomize(items);
@@ -82,14 +79,15 @@ namespace LED.UserControls
             }
         }
 
+        #region Drag&Drop
         private void DropTextBox(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(COPY_PASTE) && e.Data.GetData(COPY_PASTE) is Label)
             {
                 Label tb = e.Data.GetData(COPY_PASTE) as Label;
 
-                if(tb.Parent is ListView && sender is ListView)
-                { 
+                if (tb.Parent is ListView && sender is ListView)
+                {
                     (tb.Parent as ListView).Items.Remove(tb);
                     ListView lv = sender as ListView;
                     lv.Items.Add(tb);
@@ -111,7 +109,7 @@ namespace LED.UserControls
             Point mousePos = e.GetPosition(null);
             Vector diff = m_StartPoint - mousePos;
 
-            if (e.LeftButton == MouseButtonState.Pressed && sender is Label && 
+            if (e.LeftButton == MouseButtonState.Pressed && sender is Label &&
                 (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
                 Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
             {
@@ -127,6 +125,7 @@ namespace LED.UserControls
             // Store the mouse position
             m_StartPoint = e.GetPosition(null);
         }
+        #endregion
 
         private void Uc_sp_contenaires_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -134,7 +133,7 @@ namespace LED.UserControls
 
             foreach (Control gb in uc_sp_contenaires.Children)
             {
-                if(gb is GroupBox && (gb as GroupBox).Content is ListView)
+                if (gb is GroupBox && (gb as GroupBox).Content is ListView)
                 {
                     ((gb as GroupBox).Content as ListView).Height = sizeGroupBox;
 
@@ -142,6 +141,36 @@ namespace LED.UserControls
                 gb.Height = sizeGroupBox;
             }
 
+        }
+
+        public bool Validate()
+        {
+            m_view.Answers = new List<ItemOrderBy>();
+
+            foreach(GroupBox gb in uc_sp_contenaires.Children)
+            {
+                List<string> items = new List<string>();
+
+                if(gb.Content is ListView )
+                {
+                    ListView lv = gb.Content as ListView;
+
+                    
+
+                    foreach(Label lb in lv.Items)
+                    {
+                        if(lb != null)
+                        {
+                            items.Add(lb.Content as string);
+                        }
+                    }
+                }
+
+                m_view.Answers.Add(new ItemOrderBy { Contenaire = gb.Header as string, Items = string.Join(";", items) });
+
+            }
+
+            return m_view.Validate();
         }
     }
 }

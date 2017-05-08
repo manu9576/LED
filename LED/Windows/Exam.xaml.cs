@@ -24,6 +24,7 @@ namespace LED.Windows
         Test m_test = null;
         ViewExam m_view = null;
         UC_ExamWaiting m_waiting = null;
+        IUC_Exam m_exam = null;
 
         public Exam(Test test)
         {
@@ -48,6 +49,17 @@ namespace LED.Windows
 
         private void Wf_bt_Next_Click(object sender, RoutedEventArgs e)
         {
+
+            if(m_exam != null)
+            { 
+            if(m_exam.Validate())
+            {
+                MessageBox.Show("Bon");
+            }
+            else
+                MessageBox.Show("Pas bon");
+            }
+
             if (m_view.IsLastQuestion)
             {
                 MessageBox.Show("Affichage des résultats !!");
@@ -63,37 +75,36 @@ namespace LED.Windows
 
         private void Wf_bt_start_Click(object sender, RoutedEventArgs e)
         {
+            m_exam = null;
+
             switch (m_view.CurrentQuestion.TestType)
             {
                 case TypeTest.INTRUS:
-                    UC_ExamIntrus intrus = new UC_ExamIntrus(m_view.CurrentQuestion.QuestionsIntrus);
-                    uc_cc_questions.Content = intrus;
+                    m_exam = new UC_ExamIntrus(m_view.CurrentQuestion.QuestionsIntrus);
                     break;
 
                 case TypeTest.ORDERBY:
-                    UC_ExamOrderBy orderby = new UC_ExamOrderBy(m_view.CurrentQuestion.QuestionsOrderedBy);
-                    uc_cc_questions.Content = orderby;
+                    m_exam = new UC_ExamOrderBy(m_view.CurrentQuestion.QuestionsOrderedBy);
                     break;
 
                 case TypeTest.ORDERED:
-                    UC_ExamOrdered ordered = new UC_ExamOrdered(m_view.CurrentQuestion.QuestionsOrdered);
-                    uc_cc_questions.Content = ordered;
+                    m_exam = new UC_ExamOrdered(m_view.CurrentQuestion.QuestionsOrdered);
                     break;
 
                 case TypeTest.QCM:
-                    UC_ExamQCM qcm = new UC_ExamQCM(m_view.CurrentQuestion.QuestionsQCM);
-                    uc_cc_questions.Content = qcm;
+                    m_exam = new UC_ExamQCM(m_view.CurrentQuestion.QuestionsQCM);
                     break;
 
                 case TypeTest.TRUE_FALSE:
-                    UC_ExamTrueFalse trueFalse = new UC_ExamTrueFalse(m_view.CurrentQuestion.QuestionsTrueFalse);
-                    uc_cc_questions.Content = trueFalse;
+                    m_exam = new UC_ExamTrueFalse(m_view.CurrentQuestion.QuestionsTrueFalse);
                     break;
 
-                default:
-                    uc_cc_questions.Content = m_waiting;
-                    break;
             }
+
+            if(m_exam != null)
+                uc_cc_questions.Content = m_exam;
+            else
+                uc_cc_questions.Content = m_waiting;
         }
     }
 }

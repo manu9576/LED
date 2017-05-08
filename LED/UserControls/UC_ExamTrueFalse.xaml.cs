@@ -19,7 +19,7 @@ namespace LED.UserControls
     /// <summary>
     /// Logique d'interaction pour UC_ExamTrueFalse.xaml
     /// </summary>
-    public partial class UC_ExamTrueFalse : UserControl
+    public partial class UC_ExamTrueFalse : UserControl, IUC_Exam
     {
         private ViewExamTrueFalse m_view = null;
 
@@ -37,9 +37,9 @@ namespace LED.UserControls
             uc_dg_Questions.DataContext = m_view;
         }
 
-        public void ValidateResutal()
+        public bool Validate()
         {
-            m_view.Validate();
+            return m_view.Validate();
         }
     }
 }

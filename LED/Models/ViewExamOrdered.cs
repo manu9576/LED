@@ -24,12 +24,12 @@ namespace LED.Models
 
         public ViewExamOrdered(List<ItemOrdered> question)
         {
-            Answers = question;
+            Question = question;
 
 
             Items = new List<string>();
 
-            foreach (ItemOrdered item in Answers)
+            foreach (ItemOrdered item in Question)
             {
                 Items.Add(item.Name);
             }

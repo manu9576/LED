@@ -68,6 +68,7 @@
     <Compile Include="Models\ViewExamQCM.cs" />
     <Compile Include="Models\ViewExamTrueFalse.cs" />
     <Compile Include="Randomizer.cs" />
+    <Compile Include="UserControls\IUC_Exam.cs" />
     <Compile Include="UserControls\UC_ExamIntrus.xaml.cs">
       <DependentUpon>UC_ExamIntrus.xaml</DependentUpon>
     </Compile>

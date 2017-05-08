@@ -19,7 +19,7 @@ namespace LED.UserControls
     /// <summary>
     /// Logique d'interaction pour UC_ExamOrdered.xaml
     /// </summary>
-    public partial class UC_ExamOrdered : UserControl
+    public partial class UC_ExamOrdered : UserControl, IUC_Exam
     {
         private const string COPY_PASTE = "CP_TB";
 
@@ -97,7 +97,21 @@ namespace LED.UserControls
             }
         }
 
+        public bool Validate()
+        {
+            m_view.Answers = new List<ItemOrdered>();
 
+            foreach(Label lb in UC_lv_Items.Items)
+            {
+                if(lb!= null)
+                {
+                    m_view.Answers.Add(new ItemOrdered { Name = lb.Content as string, Place = UC_lv_Items.Items.IndexOf(lb) });
+                }
+            }
+
+            return m_view.Validate();
+
+        }
     }
 
 }

@@ -20,7 +20,7 @@ namespace LED.UserControls
     /// <summary>
     /// Logique d'interaction pour UC_ExamIntrus.xaml
     /// </summary>
-    public partial class UC_ExamIntrus : UserControl
+    public partial class UC_ExamIntrus : UserControl, IUC_Exam
     {
         ViewExamIntrus m_view = null;
 
@@ -40,7 +40,7 @@ namespace LED.UserControls
         }
 
 
-        internal bool Validate()
+        public bool Validate()
         {
             return m_view.Validate();
         }
