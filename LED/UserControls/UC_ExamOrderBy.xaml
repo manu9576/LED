@@ -1,0 +1,30 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LED.UserControls"
+             xmlns:Models="clr-namespace:LED.Models" x:Class="LED.UserControls.UC_ExamOrderBy"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+    <Grid x:Name="uc_gd_main">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.DataContext>
+            <Models:ViewExamOrderBy/>
+        </Grid.DataContext>
+
+        <GroupBox x:Name="uc_gb_Items" Header="Items" >
+            <ListView x:Name="uc_lv_items" DragEnter="DragEnterTextBox" Drop="DropTextBox" AllowDrop="True" BorderBrush="{x:Null}"/>
+        </GroupBox>
+        <GroupBox  x:Name="uc_gb_Contenaires" Grid.Column="1" Header="Contenaires" >
+            <StackPanel x:Name="uc_sp_contenaires" SizeChanged="Uc_sp_contenaires_SizeChanged"/>
+        </GroupBox>
+    </Grid>
+</UserControl>

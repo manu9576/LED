@@ -131,6 +131,14 @@ namespace LED.Models
             }
         }
 
+        public Question CurrentQuestion
+        {
+            get
+            {
+                return m_test.Questions[m_indiceQuestion];
+            }
+        }
+
         private Test m_test = null;
         private int m_indiceQuestion = 0;
 
@@ -138,8 +146,7 @@ namespace LED.Models
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         protected bool SetField<T>(ref T field, T value,[CallerMemberName] string propertyName = null)
         {

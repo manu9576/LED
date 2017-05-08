@@ -62,6 +62,30 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\ViewExam.cs" />
+    <Compile Include="Models\ViewExamIntrus.cs" />
+    <Compile Include="Models\ViewExamOrderBy.cs" />
+    <Compile Include="Models\ViewExamOrdered.cs" />
+    <Compile Include="Models\ViewExamQCM.cs" />
+    <Compile Include="Models\ViewExamTrueFalse.cs" />
+    <Compile Include="Randomizer.cs" />
+    <Compile Include="UserControls\UC_ExamIntrus.xaml.cs">
+      <DependentUpon>UC_ExamIntrus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_ExamOrderBy.xaml.cs">
+      <DependentUpon>UC_ExamOrderBy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_ExamOrdered.xaml.cs">
+      <DependentUpon>UC_ExamOrdered.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_ExamQCM.xaml.cs">
+      <DependentUpon>UC_ExamQCM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_ExamTrueFalse.xaml.cs">
+      <DependentUpon>UC_ExamTrueFalse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_ExamWaiting.xaml.cs">
+      <DependentUpon>UC_ExamWaiting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Exam.xaml.cs">
       <DependentUpon>Exam.xaml</DependentUpon>
     </Compile>
@@ -82,6 +106,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UC_ConfigTrueFalse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_ExamIntrus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_ExamOrderBy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_ExamOrdered.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_ExamQCM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_ExamTrueFalse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_ExamWaiting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

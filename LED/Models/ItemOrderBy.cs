@@ -12,7 +12,7 @@ namespace LED.Models
 
 
         [DisplayName("Catégorie")]
-        public string Contenaires { get; set; }
+        public string Contenaire { get; set; }
 
         [DisplayName("Elements")]
         public string Items { get; set; }
@@ -20,7 +20,7 @@ namespace LED.Models
 
         public override string ToString()
         {
-            return "Contenaire : " + Contenaires + " Items : "+ Items;
+            return "Contenaire : " + Contenaire + " Items : "+ Items;
         }
     }
 }

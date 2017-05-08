@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programmation\LED\LED\App.xaml
-131517916833
+14554266490
 
-291492525942
-20-1080191615
-Themes\Office2010Blue\Office2010Blue.MSControls.Core.Implicit.xaml;Themes\Office2010Blue\Office2010Blue.MSControls.Toolkit.Implicit.xaml;Themes\Office2010Blue\Styles.Shared.xaml;Themes\Office2010Blue\Styles.WPF.xaml;Themes\Office2010Blue\Theme.Colors.xaml;UserControls\UC_Intrus.xaml;UserControls\UC_OrderdBy.xaml;UserControls\UC_Ordered.xaml;UserControls\UC_QCM.xaml;UserControls\UC_TrueFalse.xaml;Windows\EditTest.xaml;Windows\MainWindow.xaml;Windows\Exam.xaml;
+41-334454259
+171481147475
+UserControls\UC_ConfigIntrus.xaml;UserControls\UC_ConfigOrderdBy.xaml;UserControls\UC_ConfigOrdered.xaml;UserControls\UC_ConfigQCM.xaml;UserControls\UC_ConfigTrueFalse.xaml;UserControls\UC_ExamIntrus.xaml;UserControls\UC_ExamOrderBy.xaml;UserControls\UC_ExamOrdered.xaml;UserControls\UC_ExamQCM.xaml;UserControls\UC_ExamTrueFalse.xaml;UserControls\UC_ExamWaiting.xaml;Windows\EditTest.xaml;Windows\MainWindow.xaml;Windows\Exam.xaml;
 
-True
+False
 

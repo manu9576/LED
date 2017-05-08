@@ -1,0 +1,21 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LED.UserControls"
+             xmlns:Models="clr-namespace:LED.Models" x:Class="LED.UserControls.UC_ExamIntrus"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+
+
+    <Grid x:Name="uc_gd_main">
+        <Grid.DataContext>
+            <Models:ViewExamIntrus/>
+        </Grid.DataContext>
+        <DataGrid x:Name="uc_dg_Questions" Margin="0" ItemsSource="{Binding Questions}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
+
+    </Grid>
+
+</UserControl>

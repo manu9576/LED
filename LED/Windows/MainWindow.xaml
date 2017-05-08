@@ -24,7 +24,7 @@
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="Wf_bt_CreateNewTest" Content="Création d'un test" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Click="Bt_CreateNewTest_Click" Grid.Row="4" Grid.Column="1" Padding="5"/>
-        <DataGrid x:Name="Wf_dg_testsList" Grid.Column="1" Margin="0" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.RowSpan="3" AutoGenerateColumns="False" ItemsSource="{Binding Mode=OneWay}" Grid.ColumnSpan="3" PreviewKeyDown="Wf_dg_testsList_PreviewKeyDown">
+        <DataGrid x:Name="Wf_dg_testsList" Grid.Column="1" Margin="0" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.RowSpan="3" AutoGenerateColumns="False" ItemsSource="{Binding Mode=OneWay}" Grid.ColumnSpan="3" PreviewKeyDown="Wf_dg_testsList_PreviewKeyDown" CanUserResizeRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}" Header="Tests existant" IsReadOnly="True"/>
             </DataGrid.Columns>
