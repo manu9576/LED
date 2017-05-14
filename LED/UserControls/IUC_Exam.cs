@@ -9,5 +9,7 @@ namespace LED.UserControls
     public interface IUC_Exam
     {
         bool Validate();
+
+        void Enabled(bool etat);
     }
 }

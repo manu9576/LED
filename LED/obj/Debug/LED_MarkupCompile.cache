@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programmation\LED\LED\App.xaml
-14554266490
+151940725374
 
-381693987217
+40-117957618
 171481147475
-UserControls\UC_ConfigIntrus.xaml;UserControls\UC_ConfigOrderdBy.xaml;UserControls\UC_ConfigOrdered.xaml;UserControls\UC_ConfigQCM.xaml;UserControls\UC_ConfigTrueFalse.xaml;UserControls\UC_ExamIntrus.xaml;UserControls\UC_ExamOrderBy.xaml;UserControls\UC_ExamOrdered.xaml;UserControls\UC_ExamQCM.xaml;UserControls\UC_ExamTrueFalse.xaml;UserControls\UC_ExamWaiting.xaml;Windows\EditTest.xaml;Windows\MainWindow.xaml;Windows\Exam.xaml;
+UserControls\UC_ConfigIntrus.xaml;UserControls\UC_ConfigOrderdBy.xaml;UserControls\UC_ConfigOrdered.xaml;UserControls\UC_ConfigQCM.xaml;UserControls\UC_ConfigTrueFalse.xaml;UserControls\UC_CountDown.xaml;UserControls\UC_ExamIntrus.xaml;UserControls\UC_ExamOrderBy.xaml;UserControls\UC_ExamOrdered.xaml;UserControls\UC_ExamQCM.xaml;UserControls\UC_ExamTrueFalse.xaml;UserControls\UC_ExamWaiting.xaml;Windows\EditTest.xaml;Windows\MainWindow.xaml;Windows\Exam.xaml;
 
 False
 

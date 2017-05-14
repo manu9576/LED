@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LED.Models;
+using System.Windows.Threading;
+using System.Threading;
 
 namespace LED.UserControls
 {
@@ -171,6 +173,14 @@ namespace LED.UserControls
             }
 
             return m_view.Validate();
+        }
+
+        public void Enabled(bool etat)
+        {
+            if (this.Dispatcher.Thread != Thread.CurrentThread)
+                Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() => Enabled(etat)));
+            else
+                IsEnabled = etat;
         }
     }
 }

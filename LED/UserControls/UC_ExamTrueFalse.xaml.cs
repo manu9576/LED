@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace LED.UserControls
 {
@@ -41,5 +43,14 @@ namespace LED.UserControls
         {
             return m_view.Validate();
         }
+
+        public void Enabled(bool etat)
+        {
+            if (this.Dispatcher.Thread != Thread.CurrentThread)
+                Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() => Enabled(etat)));
+            else
+                IsEnabled = etat;
+        }
+
     }
 }

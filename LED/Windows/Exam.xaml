@@ -26,12 +26,12 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="Wf_lb_TestName" Content="{Binding TestName}" Grid.Column="1" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="Wf_lb_QuestionName" Content="{Binding QuestionName}" Grid.Column="1" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Opacity="0.985"/>
-        <Label x:Name="Wf_lb_TextTempsRestant" Content="Temps restant (s) :" Margin="0" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" DataContext="{Binding Questions}"/>
+        <Label x:Name="Wf_lb_TextTempsRestant" Content="{Binding TextTimeLimite, Mode=OneWay}" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="Wf_lb_Question" Content="{Binding QuestionContextPhrase}" Margin="0" Grid.Row="2" Grid.Column="1                " HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Button x:Name="Wf_bt_start" Content="Commencer" HorizontalAlignment="Center" Margin="20,0" Grid.Row="5" Width="75" Grid.Column="1" Click="Wf_bt_start_Click"/>
-        <Button x:Name="Wf_bt_Next" Content="Suivant" Grid.Column="2" Margin="17,0" Grid.Row="5" Width="74" HorizontalAlignment="Center" Click="Wf_bt_Next_Click" Command="{Binding Questions/}" DataContext="{Binding Questions}"/>
-        <Label x:Name="Wf_lb_TempsRestant" Content="{Binding QuestionTimeLimite}" Grid.Column="2" Margin="0" Grid.Row="4" VerticalContentAlignment="Center"/>
-        <ContentControl x:Name="uc_cc_questions" Content="" Grid.Row="3" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="Wf_bt_Next" Content="Suivant" Grid.Column="2" Margin="77,0,76,0" Grid.Row="5" Width="74" HorizontalAlignment="Center" Click="Wf_bt_Next_Click" Command="{Binding Questions/}" DataContext="{Binding Questions}" Height="20" VerticalAlignment="Top"/>
+        <ContentControl x:Name="WF_cc_questions" Content="" Grid.Row="3" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <UserControls:Uc_CountDown x:Name="Wf_cd_CountDown" Grid.Column="2" Margin="0" Grid.Row="4" Padding="0,5"/>
 
 
 

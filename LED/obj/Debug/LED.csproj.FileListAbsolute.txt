@@ -14,7 +14,6 @@ D:\Programmation\LED\LED\obj\Debug\LED.Properties.Resources.resources
 D:\Programmation\LED\LED\obj\Debug\LED.csproj.GenerateResource.Cache
 D:\Programmation\LED\LED\obj\Debug\LED.exe
 D:\Programmation\LED\LED\obj\Debug\LED.pdb
-D:\Programmation\LED\LED\obj\Debug\LED.csprojResolveAssemblyReference.cache
 D:\Programmation\LED\LED\obj\Debug\Windows\Exam.g.cs
 D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ConfigIntrus.g.cs
 D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ConfigOrderdBy.g.cs
@@ -39,3 +38,5 @@ D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ExamTrueFalse.g.cs
 D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ExamOrderBy.baml
 D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ExamOrdered.baml
 D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ExamTrueFalse.baml
+D:\Programmation\LED\LED\obj\Debug\UserControls\UC_CountDown.g.cs
+D:\Programmation\LED\LED\obj\Debug\UserControls\UC_CountDown.baml

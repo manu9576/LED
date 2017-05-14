@@ -42,34 +42,42 @@ namespace LED.Windows
 
             };
 
-            uc_cc_questions.Content = m_waiting;
-
+            WF_cc_questions.Content = m_waiting;
+            Wf_bt_Next.IsEnabled = false;
+            Wf_cd_CountDown.OnTimeOut += Wf_cd_CountDown_OnTimeOut;
 
         }
 
         private void Wf_bt_Next_Click(object sender, RoutedEventArgs e)
         {
 
-            if(m_exam != null)
-            { 
-            if(m_exam.Validate())
-            {
-                MessageBox.Show("Bon");
-            }
-            else
-                MessageBox.Show("Pas bon");
+            if (m_exam != null)
+           {
+
+                Wf_cd_CountDown.Release();
+
+                if (m_exam.Validate())
+                {
+                    MessageBox.Show("Bon");
+                }
+                else
+                    MessageBox.Show("Pas bon");
+
             }
 
             if (m_view.IsLastQuestion)
             {
                 MessageBox.Show("Affichage des résultats !!");
                 this.Close();
+               
             }
             else
             {
-                uc_cc_questions.Content = m_waiting;
+                WF_cc_questions.Content = m_waiting;
                 m_view.NextQuestion();
 
+                Wf_bt_Next.IsEnabled = false;
+                Wf_bt_start.IsEnabled = true;
             }
         }
 
@@ -101,10 +109,26 @@ namespace LED.Windows
 
             }
 
-            if(m_exam != null)
-                uc_cc_questions.Content = m_exam;
+            if (m_exam != null)
+            {
+                WF_cc_questions.Content = m_exam;
+
+                m_exam.Enabled(true);
+
+                Wf_cd_CountDown.Start(m_view.CurrentQuestion.TimeLimite);
+                    
+                Wf_bt_Next.IsEnabled = true;
+                Wf_bt_start.IsEnabled = false;
+            }
             else
-                uc_cc_questions.Content = m_waiting;
+                WF_cc_questions.Content = m_waiting;
+        }
+
+        private void Wf_cd_CountDown_OnTimeOut()
+        {
+            m_exam.Enabled(false);
+           
+            m_view.TimeOut();
         }
     }
 }

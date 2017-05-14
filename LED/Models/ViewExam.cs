@@ -14,120 +14,120 @@ namespace LED.Models
         public string TestName { get; private set; }
         public string TestObservations { get; private set; }
 
-        private string questionName;
+        private string m_QuestionName;
         public string QuestionName
         {
             get
             {
-                return questionName;
+                return m_QuestionName;
             }
             private set
             {
-                SetField(ref questionName, value);
+                SetField(ref m_QuestionName, value);
             }
         }
 
-        private string questionContextPhrase;
+        private string m_QuestionContextPhrase;
         public string QuestionContextPhrase
         {
             get
             {
-                return questionContextPhrase;
+                return m_QuestionContextPhrase;
             }
             private set
             {
-                SetField(ref questionContextPhrase, value);
+                SetField(ref m_QuestionContextPhrase, value);
             }
         }
 
-        private int questionTimeLimite;
+        private int m_QuestionTimeLimite;
         public int QuestionTimeLimite
         {
             get
             {
-                return questionTimeLimite;
+                return m_QuestionTimeLimite;
             }
             private set
             {
-                SetField(ref questionTimeLimite, value);
+                SetField(ref m_QuestionTimeLimite, value);
             }
         }
 
-        private TypeTest questionTestType;
+        private TypeTest m_QuestionTestType;
         public TypeTest QuestionTestType
         {
             get
             {
-                return questionTestType;
+                return m_QuestionTestType;
             }
             private set
             {
-                SetField(ref questionTestType, value);
+                SetField(ref m_QuestionTestType, value);
             }
         }
 
-        private List<ItemIntrus> questionsIntrus;
+        private List<ItemIntrus> m_QuestionsIntrus;
         public List<ItemIntrus> QuestionsIntrus
         {
             get
             {
-                return questionsIntrus;
+                return m_QuestionsIntrus;
             }
             private set
             {
-                SetField(ref questionsIntrus, value);
+                SetField(ref m_QuestionsIntrus, value);
             }
         }
 
-        private List<ItemOrderBy> questionsOrderedBy;
+        private List<ItemOrderBy> m_QuestionsOrderedBy;
         public List<ItemOrderBy> QuestionsOrderedBy
         {
             get
             {
-                return questionsOrderedBy;
+                return m_QuestionsOrderedBy;
             }
             private set
             {
-                SetField(ref questionsOrderedBy, value);
+                SetField(ref m_QuestionsOrderedBy, value);
             }
         }
 
-        private List<ItemOrdered> questionsOrdered;
+        private List<ItemOrdered> m_QuestionsOrdered;
         public List<ItemOrdered> QuestionsOrdered
         {
             get
             {
-                return questionsOrdered;
+                return m_QuestionsOrdered;
             }
             private set
             {
-                SetField(ref questionsOrdered, value);
+                SetField(ref m_QuestionsOrdered, value);
             }
         }
 
-        private List<ItemQCM> questionQCM;
+        private List<ItemQCM> m_QuestionQCM;
         public List<ItemQCM> QuestionsQCM
         {
             get
             {
-                return questionQCM;
+                return m_QuestionQCM;
             }
             private set
             {
-                SetField(ref questionQCM, value);
+                SetField(ref m_QuestionQCM, value);
             }
         }
 
-        private List<ItemTrueFalse> questionTrueFalse;
+        private List<ItemTrueFalse> m_QuestionTrueFalse;
         public List<ItemTrueFalse> QuestionsTrueFalse
         {
             get
             {
-                return questionTrueFalse;
+                return m_QuestionTrueFalse;
             }
             private set
             {
-                SetField(ref questionTrueFalse, value);
+                SetField(ref m_QuestionTrueFalse, value);
             }
         }
 
@@ -139,8 +139,24 @@ namespace LED.Models
             }
         }
 
+
         private Test m_test = null;
         private int m_indiceQuestion = 0;
+
+        private string m_TextTimeLimite;
+        public string TextTimeLimite
+        {
+            get
+            {
+                return m_TextTimeLimite;
+            }
+
+            private set
+            {
+                SetField(ref m_TextTimeLimite, value);
+            }
+        }
+
 
         // boiler-plate
         public event PropertyChangedEventHandler PropertyChanged;
@@ -176,7 +192,10 @@ namespace LED.Models
             QuestionsQCM = new List<ItemQCM>();
             QuestionsTrueFalse = new List<ItemTrueFalse>();
 
-            
+
+            TextTimeLimite = "Limite de temps";
+
+
         }
 
         public ViewExam(Test test)
@@ -190,6 +209,38 @@ namespace LED.Models
             if (m_test.Questions.Count > 0)
             {
                 ReadCurrentQuestion();
+            }
+        }
+
+
+        internal void TimeOut()
+        {
+            TextTimeLimite = "Temps écoulé.";
+        }
+
+        private void ReadCurrentQuestion()
+        {
+
+            QuestionName = m_test.Questions[m_indiceQuestion].Name;
+            QuestionContextPhrase = m_test.Questions[m_indiceQuestion].ContextPhrase;
+            QuestionTimeLimite = m_test.Questions[m_indiceQuestion].TimeLimite;
+            QuestionTestType = m_test.Questions[m_indiceQuestion].TestType;
+
+            QuestionsIntrus = m_test.Questions[m_indiceQuestion].QuestionsIntrus;
+            QuestionsOrderedBy = m_test.Questions[m_indiceQuestion].QuestionsOrderedBy;
+            QuestionsOrdered = m_test.Questions[m_indiceQuestion].QuestionsOrdered;
+            QuestionsQCM = m_test.Questions[m_indiceQuestion].QuestionsQCM;
+            QuestionsTrueFalse = m_test.Questions[m_indiceQuestion].QuestionsTrueFalse;
+            
+
+            if (QuestionTimeLimite != 0)
+            {
+                TextTimeLimite = "Limte de temps : " + QuestionTimeLimite + " s.";
+            }
+            else
+            {
+                TextTimeLimite = "Pas de limite de temps";
+                
             }
         }
 
@@ -210,19 +261,5 @@ namespace LED.Models
             }
         }
 
-        private void ReadCurrentQuestion()
-        {
-
-            QuestionName = m_test.Questions[m_indiceQuestion].Name;
-            QuestionContextPhrase = m_test.Questions[m_indiceQuestion].ContextPhrase;
-            QuestionTimeLimite = m_test.Questions[m_indiceQuestion].TimeLimite;
-            QuestionTestType = m_test.Questions[m_indiceQuestion].TestType;
-
-            QuestionsIntrus = m_test.Questions[m_indiceQuestion].QuestionsIntrus;
-            QuestionsOrderedBy = m_test.Questions[m_indiceQuestion].QuestionsOrderedBy;
-            QuestionsOrdered = m_test.Questions[m_indiceQuestion].QuestionsOrdered;
-            QuestionsQCM = m_test.Questions[m_indiceQuestion].QuestionsQCM;
-            QuestionsTrueFalse = m_test.Questions[m_indiceQuestion].QuestionsTrueFalse;
-        }
     }
 }
