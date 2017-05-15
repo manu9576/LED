@@ -40,3 +40,8 @@ D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ExamOrdered.baml
 D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ExamTrueFalse.baml
 D:\Programmation\LED\LED\obj\Debug\UserControls\UC_CountDown.g.cs
 D:\Programmation\LED\LED\obj\Debug\UserControls\UC_CountDown.baml
+D:\Programmation\LED\LED\obj\Debug\LED.csprojResolveAssemblyReference.cache
+D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ExamGoodAnswer.g.cs
+D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ExamWrongAnswer.g.cs
+D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ExamGoodAnswer.baml
+D:\Programmation\LED\LED\obj\Debug\UserControls\UC_ExamWrongAnswer.baml

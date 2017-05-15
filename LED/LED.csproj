@@ -73,6 +73,9 @@
     <Compile Include="UserControls\UC_CountDown.xaml.cs">
       <DependentUpon>UC_CountDown.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UC_ExamGoodAnswer.xaml.cs">
+      <DependentUpon>UC_ExamGoodAnswer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_ExamIntrus.xaml.cs">
       <DependentUpon>UC_ExamIntrus.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,9 @@
     </Compile>
     <Compile Include="UserControls\UC_ExamWaiting.xaml.cs">
       <DependentUpon>UC_ExamWaiting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_ExamWrongAnswer.xaml.cs">
+      <DependentUpon>UC_ExamWrongAnswer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Exam.xaml.cs">
       <DependentUpon>Exam.xaml</DependentUpon>
@@ -118,6 +124,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\UC_ExamGoodAnswer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\UC_ExamIntrus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UC_ExamWaiting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_ExamWrongAnswer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

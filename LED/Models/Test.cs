@@ -103,12 +103,14 @@ namespace LED.Models
 
             sb.AppendLine("Test name : " + Name);
             sb.AppendLine("test observation : " + Observations);
+
             sb.AppendLine("Category : ");
             foreach (Category cat in TestCategory)
                 sb.AppendLine("\t" + cat.Name);
+
             sb.AppendLine("Questions : ");
-            foreach (Question cat in Questions)
-                sb.AppendLine(cat.ToString());
+            foreach (Question quest in Questions)
+                sb.AppendLine(quest.ToString());
 
             return sb.ToString();
         }

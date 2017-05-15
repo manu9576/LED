@@ -24,6 +24,8 @@ namespace LED.Windows
         Test m_test = null;
         ViewExam m_view = null;
         UC_ExamWaiting m_waiting = null;
+        UC_ExamGoodAnswer m_good = null;
+        UC_ExamWrongAnswer m_wrong = null;
         IUC_Exam m_exam = null;
 
         public Exam(Test test)
@@ -41,6 +43,18 @@ namespace LED.Windows
                 VerticalAlignment = VerticalAlignment.Stretch,
 
             };
+            m_good = new UC_ExamGoodAnswer()
+            {
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Stretch,
+
+            };
+            m_wrong = new UC_ExamWrongAnswer()
+            {
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Stretch,
+
+            };
 
             WF_cc_questions.Content = m_waiting;
             Wf_bt_Next.IsEnabled = false;
@@ -51,39 +65,53 @@ namespace LED.Windows
         private void Wf_bt_Next_Click(object sender, RoutedEventArgs e)
         {
 
-            if (m_exam != null)
-           {
-
+            if (m_view.Phase == State.Answering)
+            {
+                m_view.Phase = State.QuestionResult;
                 Wf_cd_CountDown.Release();
 
-                if (m_exam.Validate())
+                if (m_exam != null)
                 {
-                    MessageBox.Show("Bon");
+
+                    if (m_exam.Validate())
+                    {
+                        m_view.CurrentQuestion.State = QuestionStat.GOOD;
+                        WF_cc_questions.Content = m_good;
+                    }
+                    else
+                    {
+                        m_view.CurrentQuestion.State = QuestionStat.FALSE;
+                        WF_cc_questions.Content = m_wrong;
+                    }
+                }
+            }
+
+            else if (m_view.Phase == State.QuestionResult)
+            {
+                if (m_view.IsLastQuestion)
+                {
+                    m_view.Phase = State.TestResult;
+                    MessageBox.Show("Affichage des résultats !!");
+
+
                 }
                 else
-                    MessageBox.Show("Pas bon");
+                {
+                    m_view.Phase = State.Waiting;
+                    WF_cc_questions.Content = m_waiting;
+                    m_view.NextQuestion();
 
-            }
-
-            if (m_view.IsLastQuestion)
-            {
-                MessageBox.Show("Affichage des résultats !!");
-                this.Close();
-               
-            }
-            else
-            {
-                WF_cc_questions.Content = m_waiting;
-                m_view.NextQuestion();
-
-                Wf_bt_Next.IsEnabled = false;
-                Wf_bt_start.IsEnabled = true;
+                    Wf_bt_Next.IsEnabled = false;
+                    Wf_bt_start.IsEnabled = true;
+                }
             }
         }
 
         private void Wf_bt_start_Click(object sender, RoutedEventArgs e)
         {
             m_exam = null;
+            m_view.Phase = State.Answering;
+
 
             switch (m_view.CurrentQuestion.TestType)
             {

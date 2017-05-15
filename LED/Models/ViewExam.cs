@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace LED.Models
 {
+    public enum State { Waiting, Answering,QuestionResult, TestResult }
+
     public class ViewExam : INotifyPropertyChanged
     {
 
         public string TestName { get; private set; }
         public string TestObservations { get; private set; }
+        public State Phase { get; set; }
 
         private string m_QuestionName;
         public string QuestionName
@@ -220,6 +223,7 @@ namespace LED.Models
 
         private void ReadCurrentQuestion()
         {
+            Phase = State.Waiting;
 
             QuestionName = m_test.Questions[m_indiceQuestion].Name;
             QuestionContextPhrase = m_test.Questions[m_indiceQuestion].ContextPhrase;
